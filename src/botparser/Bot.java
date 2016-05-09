@@ -12,7 +12,7 @@ import java.util.Scanner;
  *
  * @author Basia
  */
-public class BotParser {
+public class Bot {
 
 
     public static void main(String[] args) {
