@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml>
+    <category>
+        <pattern>HELLO ROY</pattern>
+        <template>Hello User</template>
+    </category>
+     <category>
+        <pattern>HOW ARE YOU?</pattern>
+        <template>Fine, thanks.</template>
+    </category>
+    <category>
+        <pattern>WHAT DO YOU LIKE?</pattern>
+        <template>FIRE</template>
+    </category>
+     <category>
+        <pattern>WHO DO YOU LOVE?</pattern>
+        <template>My wife Basia</template>
+    </category>
+</aiml>
