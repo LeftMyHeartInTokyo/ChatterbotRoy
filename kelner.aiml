@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="1.0">
+	<category>
+		<pattern>HELLO</pattern>
+		<template>Hello, how can I <set name="topic">help</set> you?</template>
+	</category>
+	<category>
+		<pattern>HI</pattern>
+		<template><srai>HELLO</srai></template>
+	</category>
+	<category>
+		<pattern>GOOD MORNING</pattern>
+		<template><srai>HELLO</srai></template>
+	</category>
+	<category>
+		<pattern>GOOD AFTERNOON</pattern>
+		<template><srai>HELLO</srai></template>
+	</category>
+	<category>
+		<pattern>GOOD EVENING</pattern>
+		<template><srai>HELLO</srai></template>
+	</category>
+	<topic name="help">
+      <category>
+         <pattern>I WANT TO ORDER FOOD</pattern>
+         <template>Ok, what do you want to <set name="topic">order</set>?</template>
+      </category>
+      <category>
+         <pattern>WHAT IS IN YOUR MENU</pattern>
+         <template>Are you more interested in pasta or pizza in our <set name="topic">menu</set>?</template>
+      </category>
+	</topic>
+	<topic name="order">
+      <category>
+         <pattern>I WANT *</pattern>
+         <template>
+		 <think><set name="orderedThing"><star/></set></think> 
+		 <condition name="orderedThing" value="pizza">
+		 <think><set name="topic">extraCheese</set></think>
+		 Ok, do you want extra cheese on your pizza?
+		 </condition>
+		 <condition name="orderedThing" value="spaghetti">
+		 <think><set name="topic">extraBasile</set></think>
+		 Ok, do you want extra basile on your spaghetti?
+		 </condition>
+		 </template>
+      </category>
+	</topic>
+	<topic name="extraCheese">
+      <category>
+	   <pattern>YES</pattern>
+       <template>Ok, you want extra cheese on pizza</template> 
+	  </category>
+	  <category>
+	   <pattern>NO</pattern>
+       <template>Ok, you don't want extra cheese on pizza</template> 
+	  </category>
+	</topic>
+	<topic name="extraBasile">
+      <category>
+	   <pattern>YES</pattern>
+       <template>Ok, you want extra basile on pizza</template> 
+	  </category>
+	  <category>
+	   <pattern>NO</pattern>
+       <template>Ok, you don't want extra basile on pizza</template> 
+	  </category>
+	</topic>
+	<topic name="menu">
+      <category>
+         <pattern>PIZZA</pattern>
+         <template>
+		 <think><set name="topic">whatPizza</set></think>
+		 We have 1 - margarita with cheese, 2 - vege with corn, tomato, mushrooms, 3 - soprano with salami, corn, mushrooms. 
+		 </template>
+	  </category>
+	  <category>
+		 <pattern>PASTA</pattern>
+         <template>
+		 <think><set name="topic">whatPasta</set></think>
+		 We have 1 - spaghetti, 2 - tagliatelle with Bolognese sauce
+		 </template>
+	  </category>
+	  <category>
+		 <pattern>I DONT KNOW</pattern>
+         <template>
+		 <random>
+            <li><think><set name="topic">whatPizza</set></think>I think you would love our pizza. We have 1 - margarita with cheese, 2 - vege with corn, tomato, mushrooms, 3 - soprano with salami, corn, mushrooms. </li>
+            <li><think><set name="topic">whatPasta</set></think>Try our pasta. We have 1 - spaghetti, 2 - tagliatelle with Bolognese sauce</li>
+         </random>
+		 </template>
+      </category>
+	</topic>
+	<topic name="whatPasta">
+      <category>
+         <pattern>*</pattern>
+         <template>
+		 <think><set name = "nrPasta"><star/></set> <set name = "ifCorrestNrPasta">false</set> </think>
+		 <condition name="nrPasta" value="1">
+		 <think><set name = "ifCorrestNrPasta">true</set></think>
+		 You chose spaghetti
+		 </condition>
+		 <condition name="nrPasta" value="2">
+		 <think><set name = "ifCorrestNrPasta">true</set></think>
+		 You chose tagliatelle
+		 </condition>
+		 <condition name="ifCorrestNrPasta" value="false">
+		 Try again, wrong number.
+		 </condition>
+		 </template>
+	  </category>
+	</topic>
+	<topic name="whatPizza">
+      <category>
+         <pattern>*</pattern>
+         <template>
+		 <think><set name = "nrPizza"><star/></set> <set name = "ifCorrestNrPizza">false</set> </think>
+		 <condition name="nrPizza" value="1">
+		 <think><set name = "ifCorrestNrPizza">true</set></think>
+		 You chose margarita
+		 </condition>
+		 <condition name="nrPizza" value="2">
+		 <think><set name = "ifCorrestNrPizza">true</set></think>
+		 You chose vege
+		 </condition>
+		 <condition name="nrPizza" value="3">
+		 <think><set name = "ifCorrestNrPizza">true</set></think>
+		 You chose soprano
+		 </condition>
+		 <condition name="ifCorrestNrPizza" value="false">
+		 Try again, wrong number.
+		 </condition>
+		 </template>
+	  </category>
+	</topic>
+</aiml>
