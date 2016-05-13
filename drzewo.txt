@@ -1,0 +1,52 @@
+Klient: hi, GOOD MORNING, GOOD EVENING, HELLO, GOOD EVENING
+Roy:Hello, how can I help you?
+1)WHAT IS IN YOUR MENU//podaje sie, czy chce sie zobaczyc pizze albo pasty, sa pokazane,
+		      // wybiera sie jedna do zamowienia z pizz albo past
+	-pizza(przedstawia pizze i klinet wybiera, ktora chce)
+		-1(margarita)
+			-extraCheese
+				-yes
+				-no
+		-2(vege)
+			-extraCheese
+				-yes
+				-no
+		-3(soprano)
+			-extraCheese
+				-yes
+				-no
+		-inny(czeka, az bedzie poprawny numer)
+	-pasta(przedstawia paste i klinet wybiera, ktora chce)
+		-1(spaghetti)
+			-extraBasile
+				-yes
+				-no
+		-2(tagliatelle)
+			-extraBasile
+				-yes
+				-no
+		-inny(czeka, az bedzie poprawny numer)
+	-I dont know
+		-losuje pizza albo pasta i przedstawia(goto pizza or pasta)
+
+2)I WANT TO ORDER FOOD //podaje sie konkretny produkt
+	-margarita
+		-extraCheese
+			-yes
+			-no
+	-vege
+		-extraCheese
+			-yes
+			-no
+	-soprano
+		-extraCheese
+			-yes
+			-no
+	-spaghetti
+		-extraBasile
+			-yes
+			-no
+	-tagliatelle
+		-extraBasile
+			-yes
+			-no

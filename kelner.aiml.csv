@@ -5,19 +5,31 @@
 0,GOOD EVENING,*,*,<srai>HELLO</srai>,kelner.aiml
 0,I WANT TO ORDER FOOD,*,help,Ok, what do you want to <set name="topic">order</set>?,kelner.aiml
 0,WHAT IS IN YOUR MENU,*,help,Are you more interested in pasta or pizza in our <set name="topic">menu</set>?,kelner.aiml
-0,I WANT *,*,order, <think><set name="orderedThing"><star/></set></think> 
-		 <condition name="orderedThing" value="pizza">
+0,I WANT *,*,order, < <think><set name="orderedThing"><star/></set></think> 
+		 <condition name="orderedThing" value="margarita">
 		 <think><set name="topic">extraCheese</set></think>
-		 Ok, do you want extra cheese on your pizza?
+		 Ok, do you want extra cheese on your <get name="orderedThing"/>?
+		 </condition>
+		 <condition name="orderedThing" value="vege">
+		 <think><set name="topic">extraCheese</set></think>
+		 Ok, do you want extra cheese on your <get name="orderedThing"/>?
+		 </condition>
+		 <condition name="orderedThing" value="soprano">
+		 <think><set name="topic">extraCheese</set></think>
+		 Ok, do you want extra cheese on your <get name="orderedThing"/>?
 		 </condition>
 		 <condition name="orderedThing" value="spaghetti">
 		 <think><set name="topic">extraBasile</set></think>
-		 Ok, do you want extra basile on your spaghetti?
-		 </condition>,kelner.aiml
+		 Ok, do you want extra basile on your <get name="orderedThing"/>?
+		 </condition>
+		  <condition name="orderedThing" value="tagliatelle">
+		 <think><set name="topic">extraBasile</set></think>
+		 Ok, do you want extra basile on your <get name="orderedThing"/>?
+		 </condition,kelner.aiml
 0,YES*,*,extraCheese,Ok, you want extra cheese on pizza,kelner.aiml
 0,NO*,*,extraCheese,Ok, you don't want extra cheese on pizza,kelner.aiml
-0,YES*,*,extraBasile,Ok, you want extra cheese on pizza,kelner.aiml
-0,NO*,*,extraBasile,Ok, you don't want extra cheese on pizza,kelner.aiml
+0,YES*,*,extraBasile,Ok, you want extra basile on pasta,kelner.aiml
+0,NO*,*,extraBasile,Ok, you don't want extra basile on pasta,kelner.aiml
 0,PIZZA*,*,menu,<think><set name="topic">whatPizza</set></think>
 		 We have 1 - margarita with cheese, 2 - vege with corn, tomato, mushrooms, 3 - soprano with salami, corn, mushrooms. ,kelner.aiml
 0,PASTA*,*,menu, <think><set name="topic">whatPasta</set></think>
@@ -26,30 +38,31 @@
             <li><think><set name="topic">whatPasta</set></think>I think you would love our pizza. We have 1 - margarita with cheese, 2 - vege with corn, tomato, mushrooms, 3 - soprano with salami, corn, mushrooms. </li>
             <li><think><set name="topic">whatPasta</set></think>Try our pasta. We have 1 - spaghetti, 2 - tagliatelle with Bolognese sauce</li>
          </random>,kelner.aiml
-0,*,*,*,whatPasta,<think><set name = "nrPasta"><star/></set> <set name = "ifCorrestNrPasta">false</set> </think>
+0,*,*,*,whatPasta,  <template>
+		 <think><set name = "nrPasta"><star/></set> <set name = "ifCorrestNrPasta">false</set> </think>
 		 <condition name="nrPasta" value="1">
-		 <think><set name = "ifCorrestNrPasta">true</set></think>
-		 You chose spaghetti
+		 <think><set name = "ifCorrestNrPasta">true</set> <set name="topic">extraBasile</set> </think>
+		 You chose spaghetti. Do you want extra basile?
 		 </condition>
 		 <condition name="nrPasta" value="2">
-		 <think><set name = "ifCorrestNrPasta">true</set></think>
-		 You chose tagliatelle
+		 <think><set name = "ifCorrestNrPasta">true</set> <set name="topic">extraBasile</set> </think>
+		 You chose tagliatelle. Do you want extra basile? 
 		 </condition>
 		 <condition name="ifCorrestNrPasta" value="false">
 		 Try again, wrong number.
 		 </condition>,kelner.aiml
-0,*,*,*,whatPizza,<think><set name = "nrPizza"><star/></set> <set name = "ifCorrestNrPizza">false</set> </think>
+0,*,*,*,whatPizza,	 <think><set name = "nrPizza"><star/></set> <set name = "ifCorrestNrPizza">false</set> </think>
 		 <condition name="nrPizza" value="1">
-		 <think><set name = "ifCorrestNrPizza">true</set></think>
-		 You chose margarita
+		 <think><set name = "ifCorrestNrPizza">true</set> <set name="topic">extraCheese</set> </think>
+		 You chose margarita. Do you want extra cheese?
 		 </condition>
 		 <condition name="nrPizza" value="2">
-		 <think><set name = "ifCorrestNrPizza">true</set></think>
-		 You chose vege
+		 <think><set name = "ifCorrestNrPizza">true</set> <set name="topic">extraCheese</set> </think>
+		 You chose vege. Do you want extra cheese?
 		 </condition>
 		 <condition name="nrPizza" value="3">
-		 <think><set name = "ifCorrestNrPizza">true</set></think>
-		 You chose soprano
+		 <think><set name = "ifCorrestNrPizza">true</set> <set name="topic">extraCheese</set> </think>
+		 You chose soprano. Do you want extra cheese?
 		 </condition>
 		 <condition name="ifCorrestNrPizza" value="false">
 		 Try again, wrong number.
