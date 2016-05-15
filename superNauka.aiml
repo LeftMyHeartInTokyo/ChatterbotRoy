@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<aiml>
+
+<category>
+	<pattern>MY * IS A *</pattern>
+	<template>
+		Ok remember that a <star index="1"/> is <star index="2"/>.
+	<learn>
+		<category>
+			<pattern>
+				<eval>WHAT IS MY <star index="1"/></eval>
+			</pattern>
+			<template>
+				a <eval><star index="2"/></eval>.
+			</template>
+		</category>
+	</learn>
+	</template>
+</category>
+
+
+<category>
+	<pattern>MY * IS AN *</pattern>
+	<template>
+		Ok remember that an <star index="1"/> is <star index="2"/>.
+	<learn>
+		<category>
+			<pattern>
+				<eval>WHAT IS MY <star index="1"/></eval>
+			</pattern>
+			<template>
+				an <eval><star index="2"/></eval>.
+			</template>
+		</category>
+	</learn>
+	</template>
+</category>
+
+
+<category>
+	<pattern>MY * ARE *</pattern>
+	<template>
+		Ok remember that <star index="1"/> are <star index="2"/>.
+	<learn>
+		<category>
+			<pattern>
+				<eval>WHAT ARE MY <star index="1"/></eval>
+			</pattern>
+			<template>
+				<eval><star index="2"/></eval>.
+			</template>
+		</category>
+	</learn>
+	</template>	
+</category>
+
+
+<category>
+	<pattern>* CONSISTS OF *</pattern>
+	<template>
+		Ok, i'll remember that about <star index="1"/>.
+	<learn>
+		<category>
+			<pattern>
+				<eval>WHAT DOES <star index="1"/> CONTAIN</eval>
+			</pattern>
+			<template>
+				<eval><star index="2"/> of course!</eval>
+			</template>
+		</category>
+	</learn>
+	</template>
+</category>
+
+
+<category>
+	<pattern>* CONSIST OF *</pattern>
+	<template>
+		Ok, i'll remember that about <star index="1"/>.
+	<learn>
+		<category>
+			<pattern>
+				<eval>WHAT DO <star index="1"/> CONTAIN</eval>
+			</pattern>
+			<template>
+				<eval><star index="2"/></eval>.
+			</template>
+		</category>
+	</learn>
+	</template>
+</category>
+
+
+
+<category>
+	<pattern>* IS A *</pattern>
+	<template>
+		Ok, i understand.
+	<learn>
+		<category>
+			<pattern>
+				<eval>WHAT IS A <star index="1"/></eval>
+			</pattern>
+			<template>
+				a <eval><star index="2"/></eval>.
+			</template>
+		</category>
+	</learn>
+	</template>
+</category>
+
+
+
+<category>
+	<pattern>* IS AN *</pattern>
+	<template>
+		Ok, i understand.
+	<learn>
+		<category>
+			<pattern>
+				<eval>WHAT IS AN <star index="1"/></eval>
+			</pattern>
+			<template>
+				an <eval><star index="2"/></eval>.
+			</template>
+		</category>
+	</learn>
+	</template>
+</category>
+
+
+
+<category>
+	<pattern>* ARE *</pattern>
+	<template>
+		Really? I didn't know that.
+	<learn>
+		<category>
+			<pattern>
+				<eval>WHAT ARE <star index="1"/></eval>
+			</pattern>
+			<template>
+				<eval><star index="2"/></eval>.
+			</template>
+		</category>
+	</learn>
+	</template>
+</category>
+
+
+<category>
+	<pattern>I LIKE *</pattern>
+		<template>
+		<random>
+			<li>I also!</li>
+			<li>Really? I dislike <star index="1"/></li>
+		</random>
+		<learn>
+			<category>
+				<pattern>
+					<eval>WHAT DO I LIKE</eval>
+				</pattern>
+				<template>
+					<eval><star index="1"/></eval>
+				</template>
+			</category>
+		</learn>
+		</template>
+</category>
+
+
+
+<category>
+	<pattern>I DISLIKE *</pattern>
+	<template>
+		Ahh, okay.
+	<learn>
+		<category>
+			<pattern>
+				<eval>WHAT DO I DISLIKE</eval>
+			</pattern>
+			<template>
+				<eval><star index="1"/></eval>
+			</template>
+		</category>
+	</learn>
+	</template>
+</category>
+
+
+
+<category>
+	<pattern>I HATE *</pattern>
+	<template>
+		:C
+	<learn>
+		<category>
+			<pattern>
+				<eval>WHAT DO I HATE</eval>
+			</pattern>
+			<template>
+				<eval><star index="1"/></eval>
+			</template>
+		</category>
+	</learn>		
+	</template>
+</category>
+
+
+</aiml>

@@ -1,0 +1,34 @@
+MY * IS A *
+>>WHAT IS MY *
+
+MY * IS AN *
+>>WHAT IS MY *
+
+MY * ARE *
+>>WHAT ARE MY *
+
+* CONSISTS OF *
+>>WHAT DOES * CONTAIN
+
+* CONSIST OF *
+>>WHAT DO * CONTAIN
+
+* IS A *
+>>WHAT IS A *
+
+* IS AN *
+>>WHAT IS AN *
+
+* ARE *
+>>WHAT ARE *
+
+I LIKE *
+>>WHAT DO I LIKE
+
+I DISLIKE *
+>>WHAT DO I DISLIKE
+
+I HATE *
+>>WHAT DO I HATE
+
+
