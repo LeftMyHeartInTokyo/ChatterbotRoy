@@ -1,11 +1,28 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <aiml version="2.0">
+  <!--CHCE ZAMOWIC KONKRETNE DANIE-->
   <category>
     <pattern>
-      I WANT TO ORDER <set>menu</set>
+      I WANT TO ORDER <set>pasta</set>
     </pattern>
     <template>
-      Ok, you want to order <star/>
+      <think>
+        <set name="topic">finalize</set>
+        <set name="kindOfFood">pasta</set>
+      </think>
+      Ok you want to order <set name="orderedThing"><star/></set>. Do you want extra basil?
+    </template>
+  </category>
+  <category>
+    <pattern>
+      I WANT TO ORDER <set>pizza</set>
+    </pattern>
+    <template>
+      <think>
+      <set name="topic">finalize</set>
+      <set name="kindOfFood">pizza</set>
+      </think>
+      Ok you want to order <set name="orderedThing"><star/></set>. Do you want extra cheese?      
     </template>
   </category>
   <category>
@@ -57,6 +74,7 @@
       Would you rather eat pizza or pasta
     </template>
   </category>
+<!--POLECENIE DANIA-->
   <topic name="recommendMe">
     <category>
       <pattern>
@@ -64,7 +82,32 @@
       </pattern>
       <that>Would you rather eat pizza or pasta</that>
       <template>
-        So maybe soprano?
+        So maybe soprano
+      </template>
+    </category>
+    <category>
+      <pattern>
+        YES
+      </pattern>
+      <that>So maybe soprano</that>
+      <template>
+        <think>
+          <think>
+            <set name="topic">finalize</set>
+            <set name="kindOfFood">pizza</set>
+            <set name="orderedThing">soprano</set>
+          </think>
+        </think>
+        Ok you want <get name="orderedThing"/> Do you want extra cheese on your <get name="orderedThing"/>
+      </template>
+    </category>
+    <category>
+      <pattern>
+        NO
+      </pattern>
+      <that>So maybe soprano</that>
+      <template>
+        Ok you dont want soprano
       </template>
     </category>
     <category>
@@ -73,7 +116,30 @@
       </pattern>
       <that>Would you rather eat pizza or pasta</that>
       <template>
-        So maybe spaghetti?
+        So maybe spaghetti
+      </template>
+    </category>
+    <category>
+      <pattern>
+        YES
+      </pattern>
+      <that>So maybe spaghetti</that>
+      <template>
+        <think>
+          <set name="topic">finalize</set>
+          <set name="kindOfFood">pasta</set>
+          <set name="orderedThing">spaghetti</set>
+        </think>
+        Ok you want <get name="orderedThing"/> Do you want extra basil on your <get name="orderedThing"/>
+      </template>
+    </category>
+    <category>
+      <pattern>
+        NO
+      </pattern>
+      <that>So maybe spaghetti</that>
+      <template>
+        Ok you dont want spaghetti
       </template>
     </category>
     <category>
@@ -95,6 +161,29 @@
       </template>
     </category>
   </topic>
+  <!-- FINALIZACJA -->
+  <topic name="finalize">
+    <category>
+      <pattern>YES</pattern>
+      <template>
+        <think>
+          <set name="extraPrice">2</set>
+        </think>
+        <condition name="kindOfFood" value="pizza">Ok, you want extra cheese on pizza <get name="orderedThing"/></condition>
+        <condition name="kindOfFood" value="pasta">Ok, you want extra basil on pasta <get name="orderedThing"/>. </condition>
+        It will be <map name="prices"><get name="orderedThing"/></map> + <get name="extraPrice"/>
+      </template>
+    </category>
+    <category>
+      <pattern>NO</pattern>
+      <template>
+        <condition name="kindOfFood" value="pizza">Ok, you don't want extra cheese on pizza <get name="orderedThing"/></condition>
+        <condition name="kindOfFood" value="pasta">Ok, you don't want extra basil on pasta <get name="orderedThing"/></condition>
+        It will be <map name="prices"><get name="orderedThing"/></map>
+      </template>
+    </category>
+  </topic>
+  <!--CZY MACIE-->
   <category>
     <pattern>
       DO YOU HAVE <set>spices</set>
@@ -104,12 +193,12 @@
     </template>
   </category>
   <category>
-  <pattern>
-    DO YOU HAVE <set>menu</set>
-  </pattern>
-  <template>
-    Yes we have <star/> in menu
-  </template>
+    <pattern>
+      DO YOU HAVE <set>menu</set>
+    </pattern>
+    <template>
+      Yes we have <star/> in menu
+    </template>
   </category>
   <category>
     <pattern>
@@ -119,5 +208,6 @@
       We don't have it. What's this?
     </template>
   </category>
- 
+  <category>
+
 </aiml>
