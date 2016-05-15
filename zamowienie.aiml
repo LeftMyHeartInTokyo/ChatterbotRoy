@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<aiml version="2.0">
+  <category>
+    <pattern>
+      I WANT TO ORDER <set>menu</set>
+    </pattern>
+    <template>
+      Ok, you want to order <star/>
+    </template>
+  </category>
+  <category>
+    <pattern>
+      I WOULD LIKE TO EAT <set>menu</set>
+    </pattern>
+    <template>
+      <srai>
+        I want to order <star/>
+      </srai>
+    </template>
+  </category>
+  <category>
+    <pattern>
+      CAN I HAVE <set>menu</set>
+    </pattern>
+    <template>
+      <srai>
+        I want to order <star/>
+      </srai>
+    </template>
+  </category>
+  <category>
+    <pattern>
+      I WANT TO ORDER *
+    </pattern>
+    <template>
+      We dont have that in our menu
+    </template>
+  </category>
+  <category>
+    <pattern>
+      I WOULD LIKE TO EAT *
+    </pattern>
+    <template>
+      <srai>
+        I want to order <star/>
+      </srai>
+    </template>
+  </category>
+  <category>
+    <pattern>
+      CAN I HAVE *
+    </pattern>
+    <template>
+      <srai>
+        I want to order <star/>
+      </srai>
+    </template>
+  </category>
+</aiml>

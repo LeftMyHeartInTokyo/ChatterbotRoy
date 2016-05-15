@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<aiml version="2.0">
+  <category>
+    <pattern>BYE</pattern>
+    <template>
+      <think>
+        <set name="ourGoodBye">true</set>
+      </think>
+      <random>
+        <li>Bye bye</li>
+        <li>Good bye</li>
+        <li>Come back soon</li>
+      </random>
+    </template>
+  </category>
+  <category>
+    <pattern>GOODBYE</pattern>
+    <template>
+      <think>
+      </think>
+      <srai>BYE</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>BYE BYE</pattern>
+    <template>
+      <srai>BYE</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>HELLO</pattern>
+    <template>
+      <condition name="ourGoodBye" value="true">
+        Oh you decided to stay. I am glad. So once again </condition>
+      <random>
+        <li>Hello, how can I help you?</li>
+        <li>Hello, may I help you somehow?</li>
+        <li>Welcome, how can I help you?</li>
+      </random>
+      <think>
+        <set name="ourGoodBye">false</set>
+      </think>
+    </template>
+  </category>
+  <category>
+    <pattern>HI</pattern>
+    <template>
+      <srai>HELLO</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>GOOD MORNING</pattern>
+    <template>
+      <srai>HELLO</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>GOOD AFTERNOON</pattern>
+    <template>
+      <srai>HELLO</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>GOOD EVENING</pattern>
+    <template>
+      <srai>HELLO</srai>
+    </template>
+  </category>
+</aiml>
