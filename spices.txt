@@ -1,0 +1,6 @@
+salt
+pepper
+basil
+oregano
+mint
+paprika

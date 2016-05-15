@@ -20,20 +20,10 @@
   </category>
   <category>
     <pattern>
-      CAN I HAVE <set>menu</set>
-    </pattern>
-    <template>
-      <srai>
-        I want to order <star/>
-      </srai>
-    </template>
-  </category>
-  <category>
-    <pattern>
       I WANT TO ORDER *
     </pattern>
     <template>
-      We dont have that in our menu
+      Sorry we dont have <star/> in our menu
     </template>
   </category>
   <category>
@@ -56,4 +46,78 @@
       </srai>
     </template>
   </category>
+  <category>
+    <pattern>
+      RECOMMEND ME SOMETHING
+    </pattern>
+    <template>
+      <think>
+        <set name="topic">recommendMe</set>
+      </think>
+      Would you rather eat pizza or pasta
+    </template>
+  </category>
+  <topic name="recommendMe">
+    <category>
+      <pattern>
+        PIZZA
+      </pattern>
+      <that>Would you rather eat pizza or pasta</that>
+      <template>
+        So maybe soprano?
+      </template>
+    </category>
+    <category>
+      <pattern>
+        PASTA
+      </pattern>
+      <that>Would you rather eat pizza or pasta</that>
+      <template>
+        So maybe spaghetti?
+      </template>
+    </category>
+    <category>
+      <pattern>
+        I DON'T KNOW
+      </pattern>
+      <that>Would you rather eat pizza or pasta</that>
+      <template>
+        Ok then, do you like spicy meals maybe?
+      </template>
+    </category>
+    <category>
+      <pattern>
+        I DON'T KNOW
+      </pattern>
+      <that>Would you rather eat pizza or pasta</that>
+      <template>
+        Ok then, do you like spicy meals maybe?
+      </template>
+    </category>
+  </topic>
+  <category>
+    <pattern>
+      DO YOU HAVE <set>spices</set>
+    </pattern>
+    <template>
+      Yes we have spice: <star/>
+    </template>
+  </category>
+  <category>
+  <pattern>
+    DO YOU HAVE <set>menu</set>
+  </pattern>
+  <template>
+    Yes we have <star/> in menu
+  </template>
+  </category>
+  <category>
+    <pattern>
+      DO YOU HAVE *
+    </pattern>
+    <template>
+      We don't have it. What's this?
+    </template>
+  </category>
+ 
 </aiml>
